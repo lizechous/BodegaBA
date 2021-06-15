@@ -1,0 +1,28 @@
+1- Hacer build del proyecto BuenosAires.Modelo (click derecho sobre el proyecto -> build)
+2- Se generará un archivo .jar en la carpeta "dist" del proyecto BuenosAires.Modelo
+3- Dentro de la carpeta dist, abrir la consola (puede ser el git bash, o con ctrl y click derecho sobre la carpeta -> abrir consola), y ejecutar el siguiente comando:
+
+mvn install:install-file -Dfile=BuenosAires.Modelo.jar -DgroupId=buenosaires.modelo -DartifactId=buenosaires-modelo -Dversion=1.2.1 -Dpackaging=jar
+
+Con esto se desplegará la librería en el repositorio maven local, y podrá ser importado como dependencia en los archivos pom.xml de cualquier proyecto maven
+
+4- Importar la librería como dependencia en el archivo pom.xml del proyecto WebServiceAnwo:
+
+<dependency>
+	<groupId>buenosaires.modelo</groupId>
+	<artifactId>buenosaires-modelo</artifactId>
+	<version>1.0.0</version>
+</dependency>
+
+5- Al guardar los cambios, netbeans buscará las dependencias nuevas que se agregaron y la librería de modelos debería aparecer dentro de las Dependencias del proyecto
+
+Cada vez que se modifique la librería (BuenosAires.Modelo) se debe ejecutar el comando del paso 3, subiendole una version, y actualizando la dependencia en los proyectos que la ocupen
+
+Las versiones semanticas se dividen en 3 numeros, inicialmente se parte en 1.0.0. Para determinar una nueva version se deben considerar los
+impactos del cambio.
+
+El primer número se debe modificar cuando hay un cambio que provoque que los proyectos que, al actualizar la dependencia, dejen de compilar. Haciendo obligatoria una corrección de código
+El segundo número se debe modificar cuando se modifica la lógica de la librería, pero los proyectos que dependan de ella aún pueden seguir funcionando sin realizar cambios
+El tercer número se modifica cuando el cambio es mínimo (como un cambio en la documentación) o cuando se refiere a una corrección de algún bug. Los proyectos que dependan de ella no se ven afectados por este cambio
+
+https://blog.armesto.net/que-es-el-versionamiento-semantico-y-por-que-es-importante/

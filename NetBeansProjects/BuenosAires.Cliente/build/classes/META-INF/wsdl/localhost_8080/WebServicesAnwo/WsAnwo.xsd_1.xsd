@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.2 (UNKNOWN-17d59c9; 2018-09-26T15:16:30-0700) JAXWS-RI/2.3.1 JAXWS-API/2.3.1 JAXB-RI/2.3.1 JAXB-API/2.3.1 svn-revision#unknown. --><xs:schema xmlns:tns="http://webservicesanwo.mycompany.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservicesanwo.mycompany.com/">
+
+<xs:element name="ConsultarProductos" type="tns:ConsultarProductos"/>
+
+<xs:element name="ConsultarProductosDisponibles" type="tns:ConsultarProductosDisponibles"/>
+
+<xs:element name="ConsultarProductosDisponiblesResponse" type="tns:ConsultarProductosDisponiblesResponse"/>
+
+<xs:element name="ConsultarProductosResponse" type="tns:ConsultarProductosResponse"/>
+
+<xs:element name="ReservarProducto" type="tns:ReservarProducto"/>
+
+<xs:element name="ReservarProductoResponse" type="tns:ReservarProductoResponse"/>
+
+<xs:complexType name="ReservarProducto">
+<xs:sequence>
+<xs:element name="arg0" type="tns:number" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="number" abstract="true">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ReservarProductoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ConsultarProductos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ConsultarProductosResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ConsultarProductosDisponibles">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ConsultarProductosDisponiblesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
