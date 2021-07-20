@@ -4,11 +4,11 @@
 <xsd:import namespace="http://webservicesanwo.mycompany.com/" schemaLocation="http://localhost:8080/WebServicesAnwo/WsAnwo?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="ReservarProducto">
-<part name="parameters" element="tns:ReservarProducto"/>
+<message name="ConsultarProductos">
+<part name="parameters" element="tns:ConsultarProductos"/>
 </message>
-<message name="ReservarProductoResponse">
-<part name="parameters" element="tns:ReservarProductoResponse"/>
+<message name="ConsultarProductosResponse">
+<part name="parameters" element="tns:ConsultarProductosResponse"/>
 </message>
 <message name="ConsultarProductosDisponibles">
 <part name="parameters" element="tns:ConsultarProductosDisponibles"/>
@@ -16,29 +16,29 @@
 <message name="ConsultarProductosDisponiblesResponse">
 <part name="parameters" element="tns:ConsultarProductosDisponiblesResponse"/>
 </message>
-<message name="ConsultarProductos">
-<part name="parameters" element="tns:ConsultarProductos"/>
+<message name="ReservarProducto">
+<part name="parameters" element="tns:ReservarProducto"/>
 </message>
-<message name="ConsultarProductosResponse">
-<part name="parameters" element="tns:ConsultarProductosResponse"/>
+<message name="ReservarProductoResponse">
+<part name="parameters" element="tns:ReservarProductoResponse"/>
 </message>
 <portType name="WsAnwo">
-<operation name="ReservarProducto">
-<input wsam:Action="http://webservicesanwo.mycompany.com/WsAnwo/ReservarProductoRequest" message="tns:ReservarProducto"/>
-<output wsam:Action="http://webservicesanwo.mycompany.com/WsAnwo/ReservarProductoResponse" message="tns:ReservarProductoResponse"/>
+<operation name="ConsultarProductos">
+<input wsam:Action="http://webservicesanwo.mycompany.com/WsAnwo/ConsultarProductosRequest" message="tns:ConsultarProductos"/>
+<output wsam:Action="http://webservicesanwo.mycompany.com/WsAnwo/ConsultarProductosResponse" message="tns:ConsultarProductosResponse"/>
 </operation>
 <operation name="ConsultarProductosDisponibles">
 <input wsam:Action="http://webservicesanwo.mycompany.com/WsAnwo/ConsultarProductosDisponiblesRequest" message="tns:ConsultarProductosDisponibles"/>
 <output wsam:Action="http://webservicesanwo.mycompany.com/WsAnwo/ConsultarProductosDisponiblesResponse" message="tns:ConsultarProductosDisponiblesResponse"/>
 </operation>
-<operation name="ConsultarProductos">
-<input wsam:Action="http://webservicesanwo.mycompany.com/WsAnwo/ConsultarProductosRequest" message="tns:ConsultarProductos"/>
-<output wsam:Action="http://webservicesanwo.mycompany.com/WsAnwo/ConsultarProductosResponse" message="tns:ConsultarProductosResponse"/>
+<operation name="ReservarProducto">
+<input wsam:Action="http://webservicesanwo.mycompany.com/WsAnwo/ReservarProductoRequest" message="tns:ReservarProducto"/>
+<output wsam:Action="http://webservicesanwo.mycompany.com/WsAnwo/ReservarProductoResponse" message="tns:ReservarProductoResponse"/>
 </operation>
 </portType>
 <binding name="WsAnwoPortBinding" type="tns:WsAnwo">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="ReservarProducto">
+<operation name="ConsultarProductos">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -56,7 +56,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="ConsultarProductos">
+<operation name="ReservarProducto">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

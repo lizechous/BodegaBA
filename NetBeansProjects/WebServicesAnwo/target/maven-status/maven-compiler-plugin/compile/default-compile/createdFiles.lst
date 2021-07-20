@@ -1,5 +1,5 @@
 com\mycompany\webservicesanwo\resources\JavaEE8Resource.class
 com\mycompany\webservicesanwo\JAXRSConfiguration.class
-database\OracleDataBaseConnection.class
 com\mycompany\webservicesanwo\WsAnwo.class
 database\AnwoStoreProcedures.class
+database\OracleDataBaseConnection.class

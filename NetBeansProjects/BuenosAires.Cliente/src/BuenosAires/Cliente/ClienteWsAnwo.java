@@ -11,16 +11,16 @@ package BuenosAires.Cliente;
  */
 public class ClienteWsAnwo {
 
-    public static String consultarProductosDisponibles() {
-        com.mycompany.webservicesanwo.WsAnwo_Service service = new com.mycompany.webservicesanwo.WsAnwo_Service();
-        com.mycompany.webservicesanwo.WsAnwo port = service.getWsAnwoPort();
-        return port.consultarProductosDisponibles();
-    }
-    
     public static String consultarProductos() {
         com.mycompany.webservicesanwo.WsAnwo_Service service = new com.mycompany.webservicesanwo.WsAnwo_Service();
         com.mycompany.webservicesanwo.WsAnwo port = service.getWsAnwoPort();
         return port.consultarProductos();
+    }
+
+    public static String consultarProductosDisponibles() {
+        com.mycompany.webservicesanwo.WsAnwo_Service service = new com.mycompany.webservicesanwo.WsAnwo_Service();
+        com.mycompany.webservicesanwo.WsAnwo port = service.getWsAnwoPort();
+        return port.consultarProductosDisponibles();
     }
 
     public static String reservarProducto(int arg0) {

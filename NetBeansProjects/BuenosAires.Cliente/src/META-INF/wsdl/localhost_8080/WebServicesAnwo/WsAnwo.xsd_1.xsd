@@ -14,12 +14,8 @@
 
 <xs:complexType name="ReservarProducto">
 <xs:sequence>
-<xs:element name="arg0" type="tns:number" minOccurs="0"/>
+<xs:element name="arg0" type="xs:int"/>
 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="number" abstract="true">
-<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="ReservarProductoResponse">

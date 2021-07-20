@@ -5,17 +5,26 @@
  */
 package BuenosAires.VentasBA.Vistas;
 
+import BuenosAires.Modelo.BodegaProducto;
+import BuenosAires.VentasBA.Controladores.ControladorVentaBA;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Liz
  */
 public class VistaConsultarStock extends javax.swing.JFrame {
-
+    
+    ControladorVentaBA controlador = new ControladorVentaBA();
     /**
+     *
      * Creates new form VistaConsultarStock
      */
     public VistaConsultarStock() {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -28,43 +37,43 @@ public class VistaConsultarStock extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jbListarProd = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtProd = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Consultar stock Bodega");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButton1.setText("Listar productos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbListarProd.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jbListarProd.setText("Listar productos");
+        jbListarProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbListarProdActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtProd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nombre", "Descripción", "Precio", "N° Stock"
+                "Nombre", "Precio", "N° Stock"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtProd);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,7 +87,7 @@ public class VistaConsultarStock extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(jbListarProd)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
@@ -88,7 +97,7 @@ public class VistaConsultarStock extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addComponent(jLabel1)
                 .addGap(44, 44, 44)
-                .addComponent(jButton1)
+                .addComponent(jbListarProd)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -97,9 +106,32 @@ public class VistaConsultarStock extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jbListarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListarProdActionPerformed
+        ArrayList<BodegaProducto> listaProductos = new ArrayList<>();
+        try
+        {
+            listaProductos = controlador.listarProductos();
+            DefaultTableModel productoMostrar = (DefaultTableModel)jtProd.getModel();
+            productoMostrar.setRowCount(0);
+            
+            for(BodegaProducto producto: listaProductos)
+            {
+                Object[] fila = 
+                {
+                    producto.getNombreProducto(),
+                    producto.getPrecio(),
+                    producto.getCantidad(),
+                };
+                productoMostrar.addRow(fila);
+            }
+            this.jtProd.setModel(productoMostrar);
+        }
+        catch(Exception err)
+        {
+            System.out.println("ERROR: "+ err.getMessage());
+        }                                                             
+                                       
+    }//GEN-LAST:event_jbListarProdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,9 +169,9 @@ public class VistaConsultarStock extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbListarProd;
+    private javax.swing.JTable jtProd;
     // End of variables declaration//GEN-END:variables
 }

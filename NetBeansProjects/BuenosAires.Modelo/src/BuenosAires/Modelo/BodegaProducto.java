@@ -15,18 +15,16 @@ public class BodegaProducto {
     private String descripcion;
     private String marca;
     private Number precio;
-    private char stock;
+    private Number cantidad;
 
     public BodegaProducto() {
-    }
+        this.idProducto = 0;
+        this.nombreProducto = "";
+        this.descripcion = "";
+        this.marca = "";
+        this.precio = 0;
+        this.cantidad = 0;
 
-    public BodegaProducto(Number idProducto, String nombreProducto, String descripcion, String marca, Number precio, char stock) {
-        this.idProducto = idProducto;
-        this.nombreProducto = nombreProducto;
-        this.descripcion = descripcion;
-        this.marca = marca;
-        this.precio = precio;
-        this.stock = stock;
     }
 
     public Number getIdProducto() {
@@ -69,18 +67,12 @@ public class BodegaProducto {
         this.precio = precio;
     }
 
-    public char getStock() {
-        return stock;
+    public Number getCantidad() {
+        return cantidad;
     }
 
-    public void setStock(char stock) {
-        this.stock = stock;
+    public void setCantidad(Number cantidad) {
+        this.cantidad = cantidad;
     }
 
-    @Override
-    public String toString() {
-        return "BodegaProducto{" + "idProducto=" + idProducto + ", nombreProducto=" + nombreProducto + ", descripcion=" + descripcion + ", marca=" + marca + ", precio=" + precio + ", stock=" + stock + '}';
-    }
-    
-    
 }

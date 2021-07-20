@@ -26,18 +26,15 @@ public interface WsAnwo {
 
     /**
      * 
-     * @param arg0
      * @return
      *     returns java.lang.String
      */
-    @WebMethod(operationName = "ReservarProducto")
+    @WebMethod(operationName = "ConsultarProductos")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "ReservarProducto", targetNamespace = "http://webservicesanwo.mycompany.com/", className = "com.mycompany.webservicesanwo.ReservarProducto")
-    @ResponseWrapper(localName = "ReservarProductoResponse", targetNamespace = "http://webservicesanwo.mycompany.com/", className = "com.mycompany.webservicesanwo.ReservarProductoResponse")
-    @Action(input = "http://webservicesanwo.mycompany.com/WsAnwo/ReservarProductoRequest", output = "http://webservicesanwo.mycompany.com/WsAnwo/ReservarProductoResponse")
-    public String reservarProducto(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0);
+    @RequestWrapper(localName = "ConsultarProductos", targetNamespace = "http://webservicesanwo.mycompany.com/", className = "com.mycompany.webservicesanwo.ConsultarProductos")
+    @ResponseWrapper(localName = "ConsultarProductosResponse", targetNamespace = "http://webservicesanwo.mycompany.com/", className = "com.mycompany.webservicesanwo.ConsultarProductosResponse")
+    @Action(input = "http://webservicesanwo.mycompany.com/WsAnwo/ConsultarProductosRequest", output = "http://webservicesanwo.mycompany.com/WsAnwo/ConsultarProductosResponse")
+    public String consultarProductos();
 
     /**
      * 
@@ -53,14 +50,17 @@ public interface WsAnwo {
 
     /**
      * 
+     * @param arg0
      * @return
      *     returns java.lang.String
      */
-    @WebMethod(operationName = "ConsultarProductos")
+    @WebMethod(operationName = "ReservarProducto")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "ConsultarProductos", targetNamespace = "http://webservicesanwo.mycompany.com/", className = "com.mycompany.webservicesanwo.ConsultarProductos")
-    @ResponseWrapper(localName = "ConsultarProductosResponse", targetNamespace = "http://webservicesanwo.mycompany.com/", className = "com.mycompany.webservicesanwo.ConsultarProductosResponse")
-    @Action(input = "http://webservicesanwo.mycompany.com/WsAnwo/ConsultarProductosRequest", output = "http://webservicesanwo.mycompany.com/WsAnwo/ConsultarProductosResponse")
-    public String consultarProductos();
+    @RequestWrapper(localName = "ReservarProducto", targetNamespace = "http://webservicesanwo.mycompany.com/", className = "com.mycompany.webservicesanwo.ReservarProducto")
+    @ResponseWrapper(localName = "ReservarProductoResponse", targetNamespace = "http://webservicesanwo.mycompany.com/", className = "com.mycompany.webservicesanwo.ReservarProductoResponse")
+    @Action(input = "http://webservicesanwo.mycompany.com/WsAnwo/ReservarProductoRequest", output = "http://webservicesanwo.mycompany.com/WsAnwo/ReservarProductoResponse")
+    public String reservarProducto(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
 
 }
